@@ -19,7 +19,7 @@ footer {
 	color: white;
 	text-align: center;
 	/*font-size: 20px;*/
-	
+
 }
 /*selector de clase*/
 .frase {
@@ -33,15 +33,14 @@ footer {
 }
 
 #testimonio-gato {
-	
+
 	text-align: center;
 	font-size: 1.5em;
 }
 #testimonio-video {
-	
+
 	text-align: center;
 }
-
 
 nav ul li {
 
@@ -84,4 +83,31 @@ nav ul li {
 footer {
 	padding: 2em;
 	font-size: 1.5em;
+}
+/*ESTILOS GALERIA*/
+/*Estilos galeria*/
+#principal, #preview {
+	display: inline-block;
+	text-align: center;
+}
+#principal {
+	width: 63%;
+	vertical-align: top;
+	margin-right: 8%;
+}
+#preview {
+	width: 20%;
+}
+#preview img, #principal img {
+	border: solid 4px #E95644;
+	padding: 1em;
+	max-width: 100%;
+	border-radius: 15px;
+}
+#galeria {
+	padding: 2em;
+}
+nav ul li a {
+	color: white;
+	text-decoration: none;
 }
