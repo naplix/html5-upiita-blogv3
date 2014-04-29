@@ -9,11 +9,11 @@ $(function(){
 		var quien_fue = $(evento.target);
 		var ruta = quien_fue.data("ruta-principal");
 		/*oculta la imagen principal*/
-		principal.slideUp(1000, function(){
+		principal.slideUp("slow", function(){
 			/*cambia la imagen*/
 			principal.attr("src", ruta);
 			/*muestra la imagen principal*/
-			principal.slideDown(1000);
+			principal.slideDown("slow");
 		});
 		
 	});
