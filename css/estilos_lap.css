@@ -48,8 +48,9 @@ nav ul li {
 	width: 50%;
 }
 #siguenos{
+	font-size: 0.7em;
+	padding: .5em;
 	display: inline-block;
-	width: 30%;
 	vertical-align: top;
 	background:#FFFFFF;
 	color: rgb(52, 52, 52);
