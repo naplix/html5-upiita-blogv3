@@ -1,6 +1,8 @@
 /*1.- obtenemos un objeto que no permita usar la libreria express*/
 var express = require("express");
 var nunjucks = require("nunjucks");
+var bodyParser = require("body-parser");
+
 var app = express();
 app.listen(8010);
 
@@ -10,7 +12,10 @@ console.log("servidor levantado...");
 nunjucks.configure(__dirname + "/vistas",{
 	express:app
 });
-console.log("sistema de templates configirado..");
+console.log("sistema de templates configurado..");
+
+/* usar body parser para recibir parametros del cliente*/
+app.use(bodyParser());
 
 /*configurar rutas estaicas*/
 app.use("/css", express.static(__dirname + "/css"));
@@ -33,3 +38,19 @@ app.get("/home", function(request, response){
 app.get("/galeria", function(request, response){
       response.render("galeria.html");
 });
+
+/*Responder a una peticion post*/
+app.post("/suscribir",function(request, response){
+	/*var correo = request.body.email;
+	console.log("Email " + correo);*/
+	response.render("suscribir.html");
+});
+
+
+
+
+
+
+
+
+
