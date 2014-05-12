@@ -2,9 +2,14 @@
 var express = require("express");
 var nunjucks = require("nunjucks");
 var bodyParser = require("body-parser");
+/* librerias para el chat */
+var socketio = require("socket.io");
+var sanitizer = require("sanitizer");
+var http = require("http");
 
-var app = express();
-app.listen(8010);
+var app = express();/* servidor sencillo */
+var servidor = http.createServer(app); /*servidor http que es mas robusto */
+servidor.listen(8010);
 
 console.log("servidor levantado...");
 
@@ -39,12 +44,55 @@ app.get("/galeria", function(request, response){
       response.render("galeria.html");
 });
 
+app.get("/contacto", function(request, response){
+      response.render("contacto.html");
+});
+
+app.get("/chat", function(request, response){
+      response.render("chat.html");
+});
+
 /*Responder a una peticion post*/
 app.post("/suscribir",function(request, response){
-	/*var correo = request.body.email;
-	console.log("Email " + correo);*/
-	response.render("suscribir.html");
+	var correo = request.body.email;
+	console.log("Email " + correo);
+	response.render("suscribir.html",{
+		email: correo,
+		mensaje: "Hola Cliente"
+	});
 });
+
+app.post("/contactar",function(request, response){
+	var nombre = request.body.nombre;
+	var comentario = request.body.comentario;
+	response.render("contactar.html",{
+		nombreCliente: nombre,
+		comentarioCliente: comentario
+	});
+});
+
+/* Chat */
+/* obtener un socket para comunicarme con todos */
+var io = socketio.listen(servidor);
+/* escuchar peticiones de todos los clientes */
+io.sockets.on("connection", function(socket){
+	/*socket representa al cliente que me envío el mensaje*/
+	socket.on("mensaje_al_servidor", function(datosCliente){
+		var nombre = sanitizer.escape(datosCliente.nombre);
+		var mensaje = sanitizer.escape(datosCliente.mensaje);
+		console.log("Nombre: " + nombre);
+		console.log("Mensaje " + mensaje);
+		/*envio datos a todos*/
+		io.sockets.emit("mensaje_al_cliente",{
+			nombreCliente: nombre,
+			mensajeCliente: mensaje
+		});
+	});
+});
+
+
+
+
 
 
 
