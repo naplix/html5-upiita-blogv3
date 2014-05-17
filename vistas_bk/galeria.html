@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <!-- head es para configurar la página -->
+    <head>
+        <title>Mi blog</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width; initial-scale=1.0">
+        <script  src="../javascript/jquery-1.10.2.min.js"></script>
+        <script  src="../javascript/sombra_titulo.js"></script>
+        <script  src="../javascript/cerrar_redes.js"></script>
+        <script  src="../javascript/cambia_gato.js"></script>
+        <script  src="../javascript/galeria.js"></script>
+
+        <link href="../css/normalize.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="css/media.css" rel="stylesheet" type="text/css" />
+        -->
+        <link href="../css/estilos_global.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/estilos_lap.css" rel="stylesheet" type="text/css" media="screen and (min-width: 800px)"/>
+        <link href="../css/estilos_moviles.css" rel="stylesheet" type="text/css" media="screen and (max-width: 800px)"/>
+
+        <!--estilos de la página -->
+
+    </head>
+    <!-- body contenido de la página -->
+    <body>
+        <header>
+            <div id="titulo">
+                <h1>Consultora Cat</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="/galeria">Galeria</a>
+                    </li>
+                    <li>
+                        <a href="/chat">Chat</a>
+                    </li>
+                    <li>
+                        <a href="/contacto">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section id="galeria">
+            <div id="principal">
+                <img src="../imagenes/galeria/principal1.jpg"/>
+            </div>
+            <div id="preview">
+                <img data-ruta-principal="../imagenes/galeria/principal1.jpg" src="../imagenes/galeria/preview1.jpg"/>
+                <img data-ruta-principal="../imagenes/galeria/principal2.jpg"src="../imagenes/galeria/preview2.jpg"/>
+                <img data-ruta-principal="../imagenes/galeria/principal3.jpg"src="../imagenes/galeria/preview3.jpg"/>
+            </div>
+        </section>
+        <footer>
+            <div id="siguenos">
+                <h3>Síguenos</h3>
+                <div id="imagenes-redes">
+                    <img src="../imagenes/plato/facebook.png"/>
+                    <img src="../imagenes/plato/twitter.png"/>
+                    <img src="../imagenes/plato/youtube.png" />
+                </div>
+                <a id="cerrar" href="#">close</a>
+            </div>
+            <div id="suscribir">
+                <h3>Suscribir</h3>
+                <label for="suscribir-email">Email:</label>
+                <input id="suscribir-email" type="text" />
+            </div>
+        </footer>
+    </body>
+</html>

@@ -125,11 +125,19 @@ nav ul li a {
  background-size: 20px;
 }
 
-
-
-
-
-
-
-
-
+ #mapa{
+                width: 400px;
+                height: 400px;
+            }
+            #columna-direccion{
+                padding: 3%;
+                display:inline-block;
+                width: 50%;
+                vertical-align: top;
+            }
+            #columna-mapa{
+                display: inline-block;
+                width: 35%;
+                padding: 3%;
+                border: solid 2px black;
+            }
