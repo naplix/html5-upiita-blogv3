@@ -52,6 +52,10 @@ app.get("/chat", function(request, response){
       response.render("chat.html");
 });
 
+app.get("/ubicacion", function(request, response){
+      response.render("ubicacion.html");
+});
+
 /*Responder a una peticion post*/
 app.post("/suscribir",function(request, response){
 	var correo = request.body.email;
