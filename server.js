@@ -9,7 +9,16 @@ var http = require("http");
 
 var app = express();/* servidor sencillo */
 var servidor = http.createServer(app); /*servidor http que es mas robusto */
-servidor.listen(8010);
+//servidor.listen(8010);
+
+//obtenemos el puerto
+var PUERTO = 8010, HOST="127.0.0.1";
+if(process.env.OPENSHIFT_NODEJS_PORT){
+	PUERTO = process.env.OPENSHIFT_NODEJS_PORT;
+	HOST = process.env.OPENSHIFT_NODEJS_IP;
+}
+servidor.listen(PUERTO, HOST);
+
 
 console.log("servidor levantado...");
 
